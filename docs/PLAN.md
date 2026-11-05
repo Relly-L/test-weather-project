@@ -1,6 +1,6 @@
 # Weather — план реализации
 
-Основан на [FUNCTIONAL_REQUIREMENTS.md](FUNCTIONAL_REQUIREMENTS.md) и [TECH_REQUIREMENTS.md](TECH_REQUIREMENTS.md). Статус: этапы 1–5 выполнены, репозиторий инициализирован локально; осталось создать удалённый репозиторий, запушить и включить Pages.
+Основан на [FUNCTIONAL_REQUIREMENTS.md](FUNCTIONAL_REQUIREMENTS.md) и [TECH_REQUIREMENTS.md](TECH_REQUIREMENTS.md). Статус: все этапы выполнены. Сайт: https://relly-l.github.io/test-weather-project/ , репозиторий: https://github.com/Relly-L/test-weather-project .
 
 ## Уже готово
 - Документация в `docs/`.
