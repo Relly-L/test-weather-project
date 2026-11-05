@@ -91,3 +91,80 @@ body {
   outline: 3px solid #fff;
   outline-offset: 3px;
 }
+
+/* /test preview page */
+.preview {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.preview h1 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.preview h2 {
+  margin: 32px 0 12px;
+  font-size: 1.1rem;
+}
+
+.preview-note {
+  margin: 0;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.preview figure {
+  margin: 0;
+}
+
+.preview figcaption {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.frame {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 9 / 19;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.frame .screen {
+  min-height: 0;
+  height: 100%;
+}
+
+.frame .temp {
+  font-size: 34cqw;
+}
+
+.frame .hint {
+  font-size: 0.8rem;
+}
+
+.frame .message h1 {
+  font-size: 0.95rem;
+}
+
+.frame .message p {
+  font-size: 0.7rem;
+  margin-bottom: 12px;
+}
+
+.frame .message button {
+  min-height: 32px;
+  padding: 0 16px;
+  font-size: 0.75rem;
+}
