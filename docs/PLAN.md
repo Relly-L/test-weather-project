@@ -47,3 +47,11 @@ Requirements: "Languages", "Temperature units" and "Screen" in [FUNCTIONAL_REQUI
 - Limits of the free APIs; request caching is not provided.
 - A language flash during hydration, because the static build is in English.
 - Translations for 26 languages were prepared without native-speaker review.
+
+## Next steps
+- Decide on a free subdomain and attach it (then remove `basePath`); see "Repository and deployment" in [TECH_REQUIREMENTS.md](TECH_REQUIREMENTS.md).
+- Update the GitHub Actions versions in `.github/workflows/deploy.yml` (the runs warn that Node 20 is deprecated and that `ubuntu-latest` is moving to Ubuntu 26).
+- Have native speakers review the translations in `src/locales/` (26 of 28 were written without review).
+- Re-check the license of each background photo on its Unsplash page (see [CREDITS.md](CREDITS.md)).
+- Look at the live site on a real phone: geolocation prompt, tilt parallax (Android), the °F switch, Arabic and Hebrew layouts.
+- Optional: the ideas in [IDEAS.md](IDEAS.md).
