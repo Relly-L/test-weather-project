@@ -1,59 +1,120 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { defaultLocale, pickLocale, type Locale } from "../lib/i18n";
+import { reverseGeocode, type CitySuggestion } from "../lib/geocoding";
+import { defaultLocale, defaultUnits, localeMeta, pickLocale, type Locale, type Units } from "../lib/i18n";
 import { getBrowserPosition, getIpPosition, type Coords } from "../lib/location";
-import { fetchCurrentWeather } from "../lib/weather";
-import WeatherScreen, { type ScreenState } from "./WeatherScreen";
+import type { ScreenState } from "../lib/screenState";
+import { fetchCurrentWeather, type CurrentWeather } from "../lib/weather";
+import CitySearch from "./CitySearch";
+import LanguageSwitch from "./LanguageSwitch";
+import UnitToggle from "./UnitToggle";
+import WeatherScreen from "./WeatherScreen";
 
-async function resolveCoords(signal: AbortSignal): Promise<Coords | null> {
+type Place = Coords & { name?: string };
+
+type Data =
+  | { status: "loading" }
+  | { status: "needs-location" }
+  | { status: "error" }
+  | { status: "ready"; place: Place; weather: CurrentWeather };
+
+/** Browser location, then IP. Nothing is remembered between visits. */
+async function detectPlace(signal: AbortSignal): Promise<Place | null> {
   try {
     return await getBrowserPosition();
   } catch {
-    try {
-      return await getIpPosition(signal);
-    } catch {
-      return null;
-    }
+    // denied, timed out or unsupported
+  }
+  try {
+    return await getIpPosition(signal);
+  } catch {
+    return null;
   }
 }
 
 export default function WeatherView() {
-  const [locale, setLocale] = useState<Locale>(defaultLocale);
-  const [state, setState] = useState<ScreenState>({ status: "loading" });
+  const [locale, setLocale] = useState<Locale | null>(null);
+  const [units, setUnits] = useState<Units>("c");
+  const [manual, setManual] = useState<Place | null>(null);
+  const [data, setData] = useState<Data>({ status: "loading" });
+  const [cityName, setCityName] = useState<string | undefined>();
   const [attempt, setAttempt] = useState(0);
 
+  // Language and units come from the browser on every visit (not stored).
   useEffect(() => {
-    const picked = pickLocale(navigator.languages ?? [navigator.language]);
-    setLocale(picked);
-    document.documentElement.lang = picked;
+    const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+    setLocale(pickLocale(languages));
+    setUnits(defaultUnits(languages));
   }, []);
 
   useEffect(() => {
+    if (!locale) return;
+    document.documentElement.lang = locale;
+    document.documentElement.dir = localeMeta[locale].dir;
+  }, [locale]);
+
+  // Place and weather: once per visit, again on Retry or when a city is picked.
+  useEffect(() => {
     const controller = new AbortController();
-    setState({ status: "loading" });
+    const { signal } = controller;
+    setData({ status: "loading" });
     (async () => {
-      const coords = await resolveCoords(controller.signal);
-      if (controller.signal.aborted) return;
-      if (!coords) {
-        setState({ status: "needs-location" });
+      const place = manual ?? (await detectPlace(signal));
+      if (signal.aborted) return;
+      if (!place) {
+        setData({ status: "needs-location" });
         return;
       }
       try {
-        const weather = await fetchCurrentWeather(coords, controller.signal);
-        setState({ status: "ready", weather });
+        const weather = await fetchCurrentWeather(place, signal);
+        if (!signal.aborted) setData({ status: "ready", place, weather });
       } catch {
-        if (!controller.signal.aborted) setState({ status: "error" });
+        if (!signal.aborted) setData({ status: "error" });
       }
     })();
     return () => controller.abort();
-  }, [attempt]);
+  }, [manual, attempt]);
+
+  // City name: from the search suggestion, otherwise reverse geocoding in the current language.
+  const place = data.status === "ready" ? data.place : null;
+  useEffect(() => {
+    setCityName(undefined);
+    if (!place || place.name || !locale) return;
+    const controller = new AbortController();
+    reverseGeocode(place, locale, controller.signal)
+      .then((name) => {
+        if (!controller.signal.aborted) setCityName(name);
+      })
+      .catch(() => {});
+    return () => controller.abort();
+  }, [place, locale]);
 
   const retry = useCallback(() => setAttempt((n) => n + 1), []);
 
+  const select = useCallback((c: CitySuggestion) => {
+    setManual({ name: c.name, latitude: c.latitude, longitude: c.longitude });
+  }, []);
+
+  const current = locale ?? defaultLocale;
+  const state: ScreenState =
+    data.status === "ready"
+      ? { status: "ready", weather: data.weather, city: data.place.name ?? cityName }
+      : data;
+
   return (
-    <main>
-      <WeatherScreen state={state} locale={locale} onRetry={retry} />
+    <main className="stage">
+      <div className="phone">
+        <WeatherScreen
+          state={state}
+          locale={current}
+          units={units}
+          onRetry={retry}
+          top={<CitySearch locale={current} onSelect={select} />}
+          bottomStart={<UnitToggle units={units} locale={current} onChange={setUnits} />}
+          bottomEnd={<LanguageSwitch locale={current} onChange={setLocale} />}
+        />
+      </div>
     </main>
   );
 }

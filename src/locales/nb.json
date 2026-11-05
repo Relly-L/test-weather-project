@@ -1,0 +1,17 @@
+{
+  "loading": "Henter været…",
+  "temperatureLabel": "Gjeldende temperatur",
+  "locationTitle": "Plassering kreves",
+  "locationText": "Tillat plasseringstilgang for dette nettstedet i nettleserinnstillingene, og prøv igjen.",
+  "errorTitle": "Kunne ikke laste været",
+  "errorText": "Sjekk tilkoblingen og prøv igjen.",
+  "retry": "Prøv igjen",
+  "searchLabel": "Søk etter en by",
+  "searchPlaceholder": "Søk by",
+  "searchEmpty": "Fant ingen byer",
+  "searchError": "Søk er utilgjengelig",
+  "languageLabel": "Språk",
+  "unitsLabel": "Temperaturenhet",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

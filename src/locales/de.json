@@ -1,0 +1,17 @@
+{
+  "loading": "Wetter wird geladen…",
+  "temperatureLabel": "Aktuelle Temperatur",
+  "locationTitle": "Standort erforderlich",
+  "locationText": "Erlaube dieser Website in den Browsereinstellungen den Zugriff auf deinen Standort und versuche es erneut.",
+  "errorTitle": "Wetter konnte nicht geladen werden",
+  "errorText": "Prüfe deine Verbindung und versuche es erneut.",
+  "retry": "Erneut versuchen",
+  "searchLabel": "Nach einer Stadt suchen",
+  "searchPlaceholder": "Stadt suchen",
+  "searchEmpty": "Keine Städte gefunden",
+  "searchError": "Suche nicht verfügbar",
+  "languageLabel": "Sprache",
+  "unitsLabel": "Temperatureinheit",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

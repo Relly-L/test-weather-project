@@ -1,0 +1,17 @@
+{
+  "loading": "Hava durumu alınıyor…",
+  "temperatureLabel": "Güncel sıcaklık",
+  "locationTitle": "Konum gerekli",
+  "locationText": "Tarayıcı ayarlarından bu site için konum erişimine izin verin ve tekrar deneyin.",
+  "errorTitle": "Hava durumu yüklenemedi",
+  "errorText": "Bağlantınızı kontrol edin ve tekrar deneyin.",
+  "retry": "Tekrar dene",
+  "searchLabel": "Şehir ara",
+  "searchPlaceholder": "Şehir ara",
+  "searchEmpty": "Şehir bulunamadı",
+  "searchError": "Arama kullanılamıyor",
+  "languageLabel": "Dil",
+  "unitsLabel": "Sıcaklık birimi",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

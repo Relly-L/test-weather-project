@@ -1,19 +1,25 @@
 # Weather
 
-Минималистичный сайт погоды: Next.js (App Router, TypeScript), статический экспорт, GitHub Pages. Погода и геолокация запрашиваются на клиенте.
+A minimalist weather site: Next.js (App Router, TypeScript), static export, GitHub Pages. Weather and geolocation are requested on the client.
 
-## Документы
-- [Функциональные требования](docs/FUNCTIONAL_REQUIREMENTS.md)
-- [Технические требования](docs/TECH_REQUIREMENTS.md)
-- [План реализации](docs/PLAN.md)
-- [Идеи на потом](docs/IDEAS.md)
-- [Авторы изображений](docs/CREDITS.md)
+## Documents
+- [Functional requirements](docs/FUNCTIONAL_REQUIREMENTS.md)
+- [Technical requirements](docs/TECH_REQUIREMENTS.md)
+- [Implementation plan](docs/PLAN.md)
+- [Ideas for later](docs/IDEAS.md)
+- [Image and flag credits](docs/CREDITS.md)
 
-## Ключевые ограничения
-- Только статический экспорт (`output: 'export'`): без API routes, middleware и серверных данных.
-- Локали `en` (по умолчанию) и `uk`, выбор по языку браузера, без переключателя.
-- Репозиторий публичный: никаких секретов и ключей.
-- Фоны лежат в `public/backgrounds/`, пути строить с учётом `basePath`.
+## Key constraints
+- Static export only (`output: 'export'`): no API routes, no middleware, no server data.
+- 28 locales (`src/lib/i18n.ts`, `src/locales/`), `en` by default, chosen from the browser language and with the flag button; `ar` and `he` are right to left (logical CSS properties, `dir`). There is no Russian. Flags are SVG only, from `public/flags/` (emoji flags do not render on Windows).
+- Nothing is saved (no `localStorage`, cookies or analytics): language, units and city live until reload. Units: °F by default only for a US region, otherwise °C.
+- The repository is public: no secrets or keys.
+- Backgrounds live in `public/backgrounds/`; build paths with `basePath`.
+- Place detection order: geolocation, IP, the "needs location" screen. A manually chosen city takes priority for the visit.
+- External services (all keyless): Open-Meteo (weather, city search), ipwho.is (IP), BigDataCloud (city name). Open-Meteo attribution only in the README.
+- Animations: only `transform`/`opacity` and one Canvas per screen, everything off under `prefers-reduced-motion`; do not add new dependencies for animations.
+- Documentation is written in English.
+- Working order: collect the user's edits until they say "all"; commit, push and deploy only after the user has checked locally.
 
-## Проверка внешнего вида
-- Страница `/test/` показывает все фоны и состояния экрана в обеих локалях на тестовых данных (без запросов геолокации и погоды). Закрыта от индексации. Новые состояния и фоны добавлять в список `scenarios` в `src/app/test/page.tsx`.
+## Visual check
+- The `/test/` page shows all backgrounds and screen states with sample data (no geolocation, weather or search requests). It is excluded from indexing. Add new states and backgrounds to the `scenarios` lists in `src/app/test/page.tsx`.

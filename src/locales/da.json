@@ -1,0 +1,17 @@
+{
+  "loading": "Henter vejret…",
+  "temperatureLabel": "Aktuel temperatur",
+  "locationTitle": "Placering påkrævet",
+  "locationText": "Tillad adgang til placering for dette websted i browserindstillingerne, og prøv igen.",
+  "errorTitle": "Vejret kunne ikke indlæses",
+  "errorText": "Tjek din forbindelse, og prøv igen.",
+  "retry": "Prøv igen",
+  "searchLabel": "Søg efter en by",
+  "searchPlaceholder": "Søg by",
+  "searchEmpty": "Ingen byer fundet",
+  "searchError": "Søgning er ikke tilgængelig",
+  "languageLabel": "Sprog",
+  "unitsLabel": "Temperaturenhed",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

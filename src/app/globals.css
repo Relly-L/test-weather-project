@@ -21,6 +21,8 @@ body {
   display: grid;
   place-items: center;
   overflow: hidden;
+  overflow: clip;
+  container-type: inline-size;
 }
 
 .bg {
@@ -46,7 +48,7 @@ body {
 
 .temp {
   margin: 0;
-  font-size: clamp(6rem, 36vw, 16rem);
+  font-size: min(46cqw, 20rem);
   font-weight: 200;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -133,21 +135,17 @@ body {
 }
 
 .frame {
-  container-type: inline-size;
   position: relative;
   aspect-ratio: 9 / 19;
   border-radius: 16px;
   overflow: hidden;
+  overflow: clip;
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .frame .screen {
   min-height: 0;
   height: 100%;
-}
-
-.frame .temp {
-  font-size: 34cqw;
 }
 
 .frame .hint {
@@ -167,4 +165,629 @@ body {
   min-height: 32px;
   padding: 0 16px;
   font-size: 0.75rem;
+}
+
+.city {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}
+
+/* Main page: full screen on phones, phone-shaped frame on wide screens */
+.stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.phone {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+@media (min-width: 500px) {
+  .stage {
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+
+  .phone {
+    min-height: 0;
+    height: min(844px, calc(100dvh - 48px));
+    aspect-ratio: 9 / 19.5;
+    max-width: 100%;
+    border-radius: 44px;
+    overflow: hidden;
+    overflow: clip;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  }
+
+  .phone .screen {
+    min-height: 0;
+    height: 100%;
+  }
+}
+
+/* City search */
+.top {
+  position: absolute;
+  top: max(16px, env(safe-area-inset-top));
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.search {
+  position: relative;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.search-input:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-list,
+.search-note {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  margin: 0;
+  padding: 6px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(11, 18, 32, 0.88);
+  backdrop-filter: blur(12px);
+  text-align: start;
+}
+
+.search-list {
+  list-style: none;
+  max-height: 16rem;
+  color-scheme: dark;
+  overflow-y: auto;
+}
+
+.search-list[hidden] {
+  display: none;
+}
+
+.search-option {
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.search-option[aria-selected="true"] {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.search-option small {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.search-note {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+}
+
+.frame .top {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+.frame .search-input {
+  min-height: 30px;
+  padding: 0 12px;
+  font-size: 0.7rem;
+}
+
+.frame .city {
+  font-size: 0.7rem;
+}
+
+/* Motion: parallax layers (--px / --py are set on .screen, -1..1) */
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(calc(var(--px, 0) * -12px), calc(var(--py, 0) * -12px), 0) scale(1.08);
+  will-change: transform;
+}
+
+.fx {
+  position: absolute;
+  inset: -32px;
+  overflow: hidden;
+  overflow: clip;
+  pointer-events: none;
+  transform: translate3d(calc(var(--px, 0) * -26px), calc(var(--py, 0) * -26px), 0);
+  will-change: transform;
+}
+
+.fx canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  transform: translate3d(calc(var(--px, 0) * 10px), calc(var(--py, 0) * 10px), 0);
+  will-change: transform;
+}
+
+/* Entrance */
+.bg-in {
+  animation: fade-in 0.9s ease both;
+}
+
+.city,
+.temp {
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.temp {
+  animation-delay: 0.08s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Weather effects (CSS ones) */
+.fx-clouds i,
+.fx-fog i {
+  position: absolute;
+  left: -30%;
+  width: 160%;
+  border-radius: 50%;
+  animation: drift 90s ease-in-out infinite alternate;
+}
+
+.fx-clouds i {
+  height: 28%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+}
+
+.fx-clouds i:nth-child(1) {
+  top: 8%;
+}
+
+.fx-clouds i:nth-child(2) {
+  top: 38%;
+  animation-duration: 120s;
+  animation-direction: alternate-reverse;
+}
+
+.fx-clouds i:nth-child(3) {
+  top: 66%;
+  animation-duration: 105s;
+}
+
+.fx-fog i {
+  height: 34%;
+  background: radial-gradient(closest-side, rgba(235, 242, 245, 0.34), rgba(235, 242, 245, 0));
+}
+
+.fx-fog i:nth-child(1) {
+  top: 18%;
+  animation-duration: 70s;
+}
+
+.fx-fog i:nth-child(2) {
+  top: 44%;
+  animation-duration: 95s;
+  animation-direction: alternate-reverse;
+}
+
+.fx-fog i:nth-child(3) {
+  top: 70%;
+  animation-duration: 80s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(-12%, 0, 0);
+  }
+  to {
+    transform: translate3d(12%, 0, 0);
+  }
+}
+
+.fx-stars i {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.2;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.25);
+  }
+}
+
+.fx-sun {
+  position: absolute;
+  top: -10%;
+  right: -15%;
+  width: 90%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 244, 214, 0.65), rgba(255, 244, 214, 0));
+  animation: breathe 9s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.frame {
+  outline-offset: 3px;
+}
+
+.frame:focus-visible {
+  outline: 2px solid #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Temperature: larger, shrinks with the number length so "-40°" and "104°" fit */
+.temp-m {
+  font-size: min(38cqw, 17rem);
+}
+
+.temp-l {
+  font-size: min(30cqw, 14rem);
+}
+
+/* Corner controls (logical properties: mirrored in RTL) */
+.corner {
+  position: absolute;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 3;
+}
+
+.corner-start {
+  inset-inline-start: 16px;
+}
+
+.corner-end {
+  inset-inline-end: 16px;
+}
+
+/* °C / °F switch */
+.units {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.units button {
+  position: relative;
+  z-index: 1;
+  min-width: 48px;
+  min-height: 40px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.18s ease;
+}
+
+.units button[aria-pressed="false"] {
+  opacity: 0.7;
+}
+
+.units button:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.units button:active {
+  transform: scale(0.92);
+}
+
+.units button:focus-visible,
+.lang-btn:focus-visible,
+.lang-item:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.units-thumb {
+  position: absolute;
+  inset-block: 3px;
+  inset-inline-start: 3px;
+  width: calc(50% - 3px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: transform 0.4s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+.units[data-units="f"] .units-thumb {
+  transform: translateX(100%);
+}
+
+.units:dir(rtl)[data-units="f"] .units-thumb {
+  transform: translateX(-100%);
+}
+
+/* Language button and list */
+.lang {
+  position: relative;
+}
+
+.lang-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.3, 1.5, 0.5, 1), box-shadow 0.25s ease;
+}
+
+.lang-btn:hover {
+  transform: scale(1.1);
+}
+
+.lang-btn:active {
+  transform: scale(0.9);
+}
+
+.lang-btn[aria-expanded="true"] {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.lang-flag {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: flag-swap 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) backwards;
+}
+
+.lang-pop {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  inset-inline-end: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 44px);
+  gap: 8px;
+  max-height: min(55dvh, 22rem);
+  padding: 12px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  background: rgba(11, 18, 32, 0.88);
+  backdrop-filter: blur(12px);
+  color-scheme: dark;
+  transform-origin: bottom right;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.9);
+  transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2), visibility 0s linear 0.3s;
+}
+
+.lang-pop:dir(rtl) {
+  transform-origin: bottom left;
+}
+
+.lang-pop[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.lang-item {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  overflow: hidden;
+  overflow: clip;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.3, 1.5, 0.5, 1), border-color 0.2s ease;
+}
+
+.lang-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lang-item:hover,
+.lang-item:focus-visible {
+  transform: scale(1.14);
+}
+
+.lang-item:active {
+  transform: scale(0.92);
+}
+
+.lang-item[aria-current="true"] {
+  border-color: #fff;
+}
+
+.lang-pop[data-open="true"] .lang-item {
+  animation: pop-in 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.3) backwards;
+  animation-delay: calc(var(--i, 0) * 16ms);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.5);
+  }
+}
+
+@keyframes flag-swap {
+  from {
+    opacity: 0;
+    transform: rotate(-120deg) scale(0.3);
+  }
+}
+
+/* City suggestions: drop-down animation */
+.search-list:not([hidden]),
+.search-note {
+  transform-origin: top center;
+  animation: drop-in 0.26s cubic-bezier(0.2, 0.9, 0.3, 1.1) backwards;
+}
+
+.search-option {
+  transition: background 0.15s ease;
+  animation: opt-in 0.32s ease backwards;
+  animation-delay: calc(var(--i, 0) * 32ms);
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+}
+
+@keyframes opt-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* Retry button */
+.message button {
+  transition: transform 0.2s cubic-bezier(0.3, 1.5, 0.5, 1), background 0.2s ease;
+}
+
+.message button:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(1.06);
+}
+
+.message button:active {
+  transform: scale(0.94);
+}
+
+/* Small previews on /test */
+.frame .corner {
+  bottom: 8px;
+}
+
+.frame .corner-start {
+  inset-inline-start: 8px;
+}
+
+.frame .corner-end {
+  inset-inline-end: 8px;
+}
+
+.frame .units {
+  padding: 2px;
+}
+
+.frame .units button {
+  min-width: 28px;
+  min-height: 24px;
+  padding: 0 3px;
+  font-size: 0.6rem;
+}
+
+.frame .units-thumb {
+  inset-block: 2px;
+  inset-inline-start: 2px;
+  width: calc(50% - 2px);
+}
+
+.frame .lang-btn {
+  width: 30px;
+  height: 30px;
+}
+
+.frame .lang-flag {
+  width: 22px;
+  height: 22px;
 }

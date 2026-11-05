@@ -1,0 +1,17 @@
+{
+  "loading": "جارٍ تحميل الطقس…",
+  "temperatureLabel": "درجة الحرارة الحالية",
+  "locationTitle": "الموقع مطلوب",
+  "locationText": "اسمح لهذا الموقع بالوصول إلى موقعك من إعدادات المتصفح، ثم حاول مرة أخرى.",
+  "errorTitle": "تعذّر تحميل الطقس",
+  "errorText": "تحقق من اتصالك وحاول مرة أخرى.",
+  "retry": "إعادة المحاولة",
+  "searchLabel": "ابحث عن مدينة",
+  "searchPlaceholder": "ابحث عن مدينة",
+  "searchEmpty": "لم يتم العثور على مدن",
+  "searchError": "البحث غير متاح",
+  "languageLabel": "اللغة",
+  "unitsLabel": "وحدة الحرارة",
+  "celsius": "سيلسيوس",
+  "fahrenheit": "فهرنهايت"
+}

@@ -1,0 +1,17 @@
+{
+  "loading": "Haetaan säätä…",
+  "temperatureLabel": "Nykyinen lämpötila",
+  "locationTitle": "Sijainti tarvitaan",
+  "locationText": "Salli tälle sivustolle sijaintitiedot selaimen asetuksissa ja yritä uudelleen.",
+  "errorTitle": "Säätä ei voitu ladata",
+  "errorText": "Tarkista yhteytesi ja yritä uudelleen.",
+  "retry": "Yritä uudelleen",
+  "searchLabel": "Hae kaupunkia",
+  "searchPlaceholder": "Hae kaupunki",
+  "searchEmpty": "Kaupunkeja ei löytynyt",
+  "searchError": "Haku ei ole käytettävissä",
+  "languageLabel": "Kieli",
+  "unitsLabel": "Lämpötilayksikkö",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

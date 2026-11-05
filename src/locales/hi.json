@@ -1,0 +1,17 @@
+{
+  "loading": "मौसम लोड हो रहा है…",
+  "temperatureLabel": "वर्तमान तापमान",
+  "locationTitle": "स्थान की आवश्यकता है",
+  "locationText": "ब्राउज़र सेटिंग में इस साइट को स्थान की अनुमति दें, फिर दोबारा कोशिश करें।",
+  "errorTitle": "मौसम लोड नहीं हो सका",
+  "errorText": "अपना कनेक्शन जाँचें और दोबारा कोशिश करें।",
+  "retry": "फिर कोशिश करें",
+  "searchLabel": "शहर खोजें",
+  "searchPlaceholder": "शहर खोजें",
+  "searchEmpty": "कोई शहर नहीं मिला",
+  "searchError": "खोज उपलब्ध नहीं है",
+  "languageLabel": "भाषा",
+  "unitsLabel": "तापमान इकाई",
+  "celsius": "सेल्सियस",
+  "fahrenheit": "फ़ारेनहाइट"
+}

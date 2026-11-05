@@ -5,5 +5,13 @@
   "locationText": "Allow location access for this site in your browser settings, then try again.",
   "errorTitle": "Couldn't load the weather",
   "errorText": "Check your connection and try again.",
-  "retry": "Retry"
+  "retry": "Retry",
+  "searchLabel": "Search for a city",
+  "searchPlaceholder": "Search city",
+  "searchEmpty": "No cities found",
+  "searchError": "Search is unavailable",
+  "languageLabel": "Language",
+  "unitsLabel": "Temperature units",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
 }

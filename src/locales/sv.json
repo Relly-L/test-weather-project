@@ -1,0 +1,17 @@
+{
+  "loading": "Hämtar vädret…",
+  "temperatureLabel": "Aktuell temperatur",
+  "locationTitle": "Plats behövs",
+  "locationText": "Tillåt platsåtkomst för den här webbplatsen i webbläsarens inställningar och försök igen.",
+  "errorTitle": "Det gick inte att hämta vädret",
+  "errorText": "Kontrollera anslutningen och försök igen.",
+  "retry": "Försök igen",
+  "searchLabel": "Sök efter en stad",
+  "searchPlaceholder": "Sök stad",
+  "searchEmpty": "Inga städer hittades",
+  "searchError": "Sökningen är inte tillgänglig",
+  "languageLabel": "Språk",
+  "unitsLabel": "Temperaturenhet",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

@@ -1,0 +1,17 @@
+{
+  "loading": "A carregar o tempo…",
+  "temperatureLabel": "Temperatura atual",
+  "locationTitle": "É necessária a localização",
+  "locationText": "Permita o acesso à localização para este site nas definições do navegador e tente novamente.",
+  "errorTitle": "Não foi possível carregar o tempo",
+  "errorText": "Verifique a sua ligação e tente novamente.",
+  "retry": "Tentar novamente",
+  "searchLabel": "Pesquisar uma cidade",
+  "searchPlaceholder": "Pesquisar cidade",
+  "searchEmpty": "Nenhuma cidade encontrada",
+  "searchError": "A pesquisa não está disponível",
+  "languageLabel": "Idioma",
+  "unitsLabel": "Unidade de temperatura",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

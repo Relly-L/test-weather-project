@@ -1,0 +1,17 @@
+{
+  "loading": "天気を取得中…",
+  "temperatureLabel": "現在の気温",
+  "locationTitle": "位置情報が必要です",
+  "locationText": "ブラウザの設定でこのサイトの位置情報へのアクセスを許可してから、もう一度お試しください。",
+  "errorTitle": "天気を読み込めませんでした",
+  "errorText": "接続を確認して、もう一度お試しください。",
+  "retry": "再試行",
+  "searchLabel": "都市を検索",
+  "searchPlaceholder": "都市を検索",
+  "searchEmpty": "都市が見つかりません",
+  "searchError": "検索は利用できません",
+  "languageLabel": "言語",
+  "unitsLabel": "温度の単位",
+  "celsius": "摂氏",
+  "fahrenheit": "華氏"
+}

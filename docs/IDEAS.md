@@ -1,15 +1,15 @@
-# Weather — идеи на потом
+# Weather: ideas for later
 
-Не входят в текущие требования. Возвращаемся, когда версия 1 готова.
+Not part of the current requirements. We come back to these when the current version is done.
 
-## Анимированный фон
-- Дождь, снег, облака, молнии, туман через CSS или Canvas, вместо статичных картинок.
-- Учитывать `prefers-reduced-motion` и экономию батареи на мобильных.
-- Плавная смена фона по времени суток (рассвет, закат).
+## Animations (extensions)
+- A smooth background change with the time of day (sunrise, sunset).
+- Wind direction and strength from the Open-Meteo data affect the slant of rain and snow.
+- Precipitation intensity from the data (drizzle and downpour look different).
 
-## Прочее (из первоначального обсуждения)
-- Поиск города по названию.
-- Влажность, ветер, «ощущается как».
-- Прогноз на 7 дней и почасовой.
-- Светлая и тёмная темы, переключатель °C и °F.
-- Запоминание города в `localStorage`.
+## Other (from the original discussion)
+- Humidity, wind, "feels like".
+- A 7-day and an hourly forecast.
+- Light and dark themes.
+- A saved list of cities (several cities, deletion); this would need local storage, which the project currently avoids.
+- Optional saving of language and units.

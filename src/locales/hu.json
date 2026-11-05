@@ -1,0 +1,17 @@
+{
+  "loading": "Időjárás betöltése…",
+  "temperatureLabel": "Jelenlegi hőmérséklet",
+  "locationTitle": "Helymeghatározás szükséges",
+  "locationText": "Engedélyezd ennek az oldalnak a helyhozzáférést a böngésző beállításaiban, majd próbáld újra.",
+  "errorTitle": "Az időjárást nem sikerült betölteni",
+  "errorText": "Ellenőrizd a kapcsolatot, és próbáld újra.",
+  "retry": "Újra",
+  "searchLabel": "Város keresése",
+  "searchPlaceholder": "Város keresése",
+  "searchEmpty": "Nem található város",
+  "searchError": "A keresés nem érhető el",
+  "languageLabel": "Nyelv",
+  "unitsLabel": "Hőmérséklet-egység",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

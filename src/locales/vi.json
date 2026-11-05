@@ -1,0 +1,17 @@
+{
+  "loading": "Đang tải thời tiết…",
+  "temperatureLabel": "Nhiệt độ hiện tại",
+  "locationTitle": "Cần quyền truy cập vị trí",
+  "locationText": "Hãy cho phép trang web này truy cập vị trí trong cài đặt trình duyệt, rồi thử lại.",
+  "errorTitle": "Không thể tải thời tiết",
+  "errorText": "Kiểm tra kết nối của bạn và thử lại.",
+  "retry": "Thử lại",
+  "searchLabel": "Tìm một thành phố",
+  "searchPlaceholder": "Tìm thành phố",
+  "searchEmpty": "Không tìm thấy thành phố",
+  "searchError": "Tính năng tìm kiếm không khả dụng",
+  "languageLabel": "Ngôn ngữ",
+  "unitsLabel": "Đơn vị nhiệt độ",
+  "celsius": "Độ C",
+  "fahrenheit": "Độ F"
+}

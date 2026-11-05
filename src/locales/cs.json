@@ -1,0 +1,17 @@
+{
+  "loading": "Načítání počasí…",
+  "temperatureLabel": "Aktuální teplota",
+  "locationTitle": "Je potřeba poloha",
+  "locationText": "Povolte této stránce přístup k poloze v nastavení prohlížeče a zkuste to znovu.",
+  "errorTitle": "Počasí se nepodařilo načíst",
+  "errorText": "Zkontrolujte připojení a zkuste to znovu.",
+  "retry": "Zkusit znovu",
+  "searchLabel": "Vyhledat město",
+  "searchPlaceholder": "Hledat město",
+  "searchEmpty": "Žádná města nenalezena",
+  "searchError": "Vyhledávání není dostupné",
+  "languageLabel": "Jazyk",
+  "unitsLabel": "Jednotka teploty",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

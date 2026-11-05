@@ -1,0 +1,17 @@
+{
+  "loading": "Weer laden…",
+  "temperatureLabel": "Huidige temperatuur",
+  "locationTitle": "Locatie nodig",
+  "locationText": "Geef deze site toegang tot je locatie in de browserinstellingen en probeer het opnieuw.",
+  "errorTitle": "Het weer kon niet worden geladen",
+  "errorText": "Controleer je verbinding en probeer het opnieuw.",
+  "retry": "Opnieuw proberen",
+  "searchLabel": "Zoek een stad",
+  "searchPlaceholder": "Stad zoeken",
+  "searchEmpty": "Geen steden gevonden",
+  "searchError": "Zoeken niet beschikbaar",
+  "languageLabel": "Taal",
+  "unitsLabel": "Temperatuureenheid",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

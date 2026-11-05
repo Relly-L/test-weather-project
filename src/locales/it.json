@@ -1,0 +1,17 @@
+{
+  "loading": "Caricamento del meteo…",
+  "temperatureLabel": "Temperatura attuale",
+  "locationTitle": "Serve la posizione",
+  "locationText": "Consenti l’accesso alla posizione per questo sito nelle impostazioni del browser, poi riprova.",
+  "errorTitle": "Impossibile caricare il meteo",
+  "errorText": "Controlla la connessione e riprova.",
+  "retry": "Riprova",
+  "searchLabel": "Cerca una città",
+  "searchPlaceholder": "Cerca città",
+  "searchEmpty": "Nessuna città trovata",
+  "searchError": "Ricerca non disponibile",
+  "languageLabel": "Lingua",
+  "unitsLabel": "Unità di temperatura",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

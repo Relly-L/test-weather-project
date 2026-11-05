@@ -1,0 +1,17 @@
+{
+  "loading": "טוען את מזג האוויר…",
+  "temperatureLabel": "הטמפרטורה הנוכחית",
+  "locationTitle": "נדרש מיקום",
+  "locationText": "אפשרו לאתר זה גישה למיקום בהגדרות הדפדפן ונסו שוב.",
+  "errorTitle": "לא ניתן לטעון את מזג האוויר",
+  "errorText": "בדקו את החיבור ונסו שוב.",
+  "retry": "נסו שוב",
+  "searchLabel": "חיפוש עיר",
+  "searchPlaceholder": "חיפוש עיר",
+  "searchEmpty": "לא נמצאו ערים",
+  "searchError": "החיפוש אינו זמין",
+  "languageLabel": "שפה",
+  "unitsLabel": "יחידת טמפרטורה",
+  "celsius": "צלזיוס",
+  "fahrenheit": "פרנהייט"
+}

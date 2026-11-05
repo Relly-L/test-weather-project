@@ -1,0 +1,17 @@
+{
+  "loading": "Pobieranie pogody…",
+  "temperatureLabel": "Aktualna temperatura",
+  "locationTitle": "Wymagana lokalizacja",
+  "locationText": "Zezwól tej witrynie na dostęp do lokalizacji w ustawieniach przeglądarki i spróbuj ponownie.",
+  "errorTitle": "Nie udało się wczytać pogody",
+  "errorText": "Sprawdź połączenie i spróbuj ponownie.",
+  "retry": "Spróbuj ponownie",
+  "searchLabel": "Wyszukaj miasto",
+  "searchPlaceholder": "Szukaj miasta",
+  "searchEmpty": "Nie znaleziono miast",
+  "searchError": "Wyszukiwanie niedostępne",
+  "languageLabel": "Język",
+  "unitsLabel": "Jednostka temperatury",
+  "celsius": "Celsjusz",
+  "fahrenheit": "Fahrenheit"
+}

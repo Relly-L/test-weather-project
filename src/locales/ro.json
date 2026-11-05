@@ -1,0 +1,17 @@
+{
+  "loading": "Se încarcă vremea…",
+  "temperatureLabel": "Temperatura actuală",
+  "locationTitle": "Este necesară locația",
+  "locationText": "Permite accesul la locație pentru acest site din setările browserului, apoi încearcă din nou.",
+  "errorTitle": "Nu s-a putut încărca vremea",
+  "errorText": "Verifică conexiunea și încearcă din nou.",
+  "retry": "Încearcă din nou",
+  "searchLabel": "Caută un oraș",
+  "searchPlaceholder": "Caută oraș",
+  "searchEmpty": "Niciun oraș găsit",
+  "searchError": "Căutarea nu este disponibilă",
+  "languageLabel": "Limbă",
+  "unitsLabel": "Unitate de temperatură",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}

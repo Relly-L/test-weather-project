@@ -1,0 +1,17 @@
+{
+  "loading": "Memuat cuaca…",
+  "temperatureLabel": "Suhu saat ini",
+  "locationTitle": "Lokasi diperlukan",
+  "locationText": "Izinkan akses lokasi untuk situs ini di pengaturan browser, lalu coba lagi.",
+  "errorTitle": "Tidak dapat memuat cuaca",
+  "errorText": "Periksa koneksi Anda dan coba lagi.",
+  "retry": "Coba lagi",
+  "searchLabel": "Cari kota",
+  "searchPlaceholder": "Cari kota",
+  "searchEmpty": "Kota tidak ditemukan",
+  "searchError": "Pencarian tidak tersedia",
+  "languageLabel": "Bahasa",
+  "unitsLabel": "Satuan suhu",
+  "celsius": "Celsius",
+  "fahrenheit": "Fahrenheit"
+}
