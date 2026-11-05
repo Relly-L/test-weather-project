@@ -1,0 +1,9 @@
+{
+  "loading": "Getting your weather…",
+  "temperatureLabel": "Current temperature",
+  "locationTitle": "Location is needed",
+  "locationText": "Allow location access for this site in your browser settings, then try again.",
+  "errorTitle": "Couldn't load the weather",
+  "errorText": "Check your connection and try again.",
+  "retry": "Retry"
+}

@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #0b1220;
+  color: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  position: relative;
+  padding: 24px 16px;
+  text-align: center;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.temp {
+  margin: 0;
+  font-size: clamp(6rem, 36vw, 16rem);
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hint {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.message {
+  max-width: 22rem;
+}
+
+.message h1 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.message p {
+  margin: 0 0 20px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.message button {
+  min-height: 44px;
+  padding: 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.message button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
